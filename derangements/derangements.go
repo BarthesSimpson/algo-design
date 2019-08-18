@@ -2,7 +2,8 @@ package derangements
 
 import (
 	"errors"
-	"fmt"
+
+	util "algo_design/util"
 )
 
 /*
@@ -24,8 +25,6 @@ func AllDerangements(n int) ([][]int, error) {
 }
 
 func backtrack(s, n int, res *[][]int) *[][]int {
-	fmt.Printf("Iteration %d\n", s)
-	fmt.Printf("%#v\n", *res)
 	// once the length of our partial solutions is n, we are done
 	if s == n {
 		return res
@@ -34,23 +33,11 @@ func backtrack(s, n int, res *[][]int) *[][]int {
 	next := [][]int{}
 	for _, p := range *res {
 		for i := 0; i < n; i++ {
-			fmt.Printf("Candidate %d\n", i)
-			fmt.Printf("Partial solution %#v\n", p)
-			if i != s && !includes(p, i) {
-				fmt.Printf("Candidate %d accepted\n", i)
+			if i != s && !util.Includes(p, i) {
 				pp := append(p, i)
 				next = append(next, pp)
 			}
 		}
 	}
 	return backtrack(s+1, n, &next)
-}
-
-func includes(ints []int, i int) bool {
-	for _, j := range ints {
-		if j == i {
-			return true
-		}
-	}
-	return false
 }
