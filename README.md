@@ -1,3 +1,3 @@
 # Algorithm Design
 
-Some selected interesting(ish) problems from Skienna's ALgorithm Design manual.
+Some selected interesting(ish) problems from Skiena's Algorithm Design manual.
