@@ -6,7 +6,7 @@ import (
 	. "github.com/franela/goblin"
 )
 
-func TestAllDerangements(t *testing.T) {
+func TestAnagrams(t *testing.T) {
 	g := Goblin(t)
 	g.Describe("Anagrams tests", func() {
 		g.It("converts \"many voted bush retired\" to \"tuesday november third\"", func() {
